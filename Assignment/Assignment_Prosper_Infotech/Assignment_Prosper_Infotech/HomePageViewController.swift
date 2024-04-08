@@ -47,7 +47,10 @@ class HomePageViewController: UIViewController,UINavigationControllerDelegate,UI
         if let imageWithText = addText("Vidya", to: editedImage) {
             // Save the edited image
             UIImageWriteToSavedPhotosAlbum(imageWithText, nil, nil, nil)
-            
+
+           // Dismiss image picker controller
+            dismiss(animated: true, completion: nil)
+           
             // Share the edited image
             let activityViewController = UIActivityViewController(activityItems: [imageWithText], applicationActivities: nil)
             activityViewController.popoverPresentationController?.sourceView = self.view
